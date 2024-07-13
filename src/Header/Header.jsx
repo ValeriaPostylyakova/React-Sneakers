@@ -13,12 +13,12 @@ export default function Header() {
     ]
 
     return (
-        <header className="border-b">
+        <header className="border-b my-14">
             <div className="w-11/12 m-auto flex justify-between items-center py-11">
-                <a className='display-block' href='/'>
+                <a className='logo display-block' href='/'>
                     <div className="flex items-center gap-3">
                         <img src="./public/logo.svg" alt="logo" />
-                        <div>
+                        <div className='title'>
                             <h1 className="text-lg uppercase font-bold">REACT SNEAKERS</h1>
                             <h3 className="opacity-70">Магазин лучших кроссовок</h3>
                         </div>

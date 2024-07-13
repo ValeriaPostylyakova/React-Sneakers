@@ -1,0 +1,32 @@
+.image-slider {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.slider {
+    position: relative;
+    max-width: 960px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.slider__img-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.slider__btn-left {
+    position: absolute;
+    transform: rotate(180deg);
+    top: 40%;
+    left: -2.5%;
+    z-index: 10;
+}
+
+.slider__btn-right {
+    position: absolute;
+    top: 40%;
+    right: -2.5%;
+    z-index: 10;
+}

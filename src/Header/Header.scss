@@ -32,3 +32,20 @@ ul {
         visibility: visible;
     }
 }
+
+@media screen and (max-width: 600px) {
+    .title {
+        h1 {
+            font-size: 16px;
+        }
+        h3 {
+            font-size: 14px;
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .title {
+        display: none;
+    }
+}

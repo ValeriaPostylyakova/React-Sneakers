@@ -9,7 +9,7 @@ export default function Menu({items, active, setActive}) {
                 </button>
                 <ul className='burger-menu__list'>
                 {
-                    items.map((item, index) => (
+                    items.map((item) => (
                         <li key={item.id} className='burger-menu__item'>
                             {item.value}
                             <a href={item.href}></a>
