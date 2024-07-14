@@ -8,3 +8,15 @@
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
 }
+
+.wrapper-skeleton {
+    height: 100%;
+    padding-bottom: 30px;
+}
+
+.container-skeleton {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    margin-bottom: 20px;
+}

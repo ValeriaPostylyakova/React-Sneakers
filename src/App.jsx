@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.scss';
 import Header from './Header/Header';
 import ImageSlider from './ImageSlider';
 import CardList from './CardList/CardList';
 
 export default function App() {
+  const [sneakers, setSneakers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const items = [
     {id: 1, img: './public/slider-img.png'},
@@ -13,6 +15,18 @@ export default function App() {
     {id: 4, img: './public/slider-img.png'},
     {id: 5, img: './public/slider-img.png'}
   ]
+
+  useEffect(() => {
+     fetch('https://9b3fa2fbda761ff0.mokky.dev/items')
+    .then(data => data.json())
+    .then(data => setSneakers(data))
+    .catch((err) => {
+      console.log(err);
+      alert('Ошибка при получении данных');
+    })
+    .finally(() => setIsLoading(false));
+  }, [])
+
 
   return (
     <div className='w-4/5 bg-white h-hull rounded-xl m-auto shadow-xl my-14'>
@@ -31,9 +45,8 @@ export default function App() {
           alt="search" />
           </div>
         </div>
-        <CardList/>
+        <CardList data={sneakers} isLoading={isLoading}/>
       </section>
-
     </div>
   )
 }
