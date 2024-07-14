@@ -2,7 +2,7 @@ import Card from '../Card/Card';
 import { Skeleton } from '../Skeleton';
 import './CardList.scss';
 
-export default function CardList( {data, isLoading} ) {
+export default function CardList( {data, isLoading, searchValue} ) {
     return (
         isLoading ? (
         <div className="wrapper-skeleton">
@@ -21,7 +21,11 @@ export default function CardList( {data, isLoading} ) {
         </div>
     ) : (
             <div className="container">
-                {data.map((obj) => (
+                {data.filter((obj) => {
+                    const title = obj.title.toLowerCase();
+                    return title.includes(searchValue.toLowerCase());
+                })
+                .map((obj) => (
                     <Card
                     key={obj.id}
                     {...obj}

@@ -7,6 +7,11 @@ import CardList from './CardList/CardList';
 export default function App() {
   const [sneakers, setSneakers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [searchValue, setSearchValue] = useState('');
+
+  const onChangeSearchValue = (event) => {
+    setSearchValue(event.target.value);
+  }
 
   const items = [
     {id: 1, img: './public/slider-img.png'},
@@ -34,10 +39,12 @@ export default function App() {
       <ImageSlider items={items}/>
       <section className="w-10/12 m-auto">
         <div className="flex items-center justify-between mb-14">
-          <h1 className='font-bold text-3xl'>Все кроссовки</h1>
+          <h1 className='title-hero'>Все кроссовки</h1>
           <div className='relative'>
           <input 
-          className='outline-none w-52 h-10 border rounded-md px-10 transition focus:border-slate-400' 
+          value={searchValue}
+          onChange={onChangeSearchValue}
+          className='search' 
           type="text" placeholder='Поиск...' />
           <img 
           src="./public/search.svg" 
@@ -45,7 +52,11 @@ export default function App() {
           alt="search" />
           </div>
         </div>
-        <CardList data={sneakers} isLoading={isLoading}/>
+        <CardList 
+        data={sneakers}
+        isLoading={isLoading}
+        searchValue={searchValue}
+        />
       </section>
     </div>
   )

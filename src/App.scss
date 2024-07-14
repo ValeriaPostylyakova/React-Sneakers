@@ -1,0 +1,25 @@
+// outline-none w-52 h-10 border rounded-md px-10 transition focus:border-slate-400
+
+.search {
+    outline: none;
+}
+
+.title-hero {
+    font-weight: 700;
+    font-size: 30px;
+}
+
+@media screen and (max-width: 763px) {
+    .title-hero {
+        font-size: 26px;
+    }
+}
+
+@media screen and (max-width: 686px) {
+    .title-hero {
+        display: none;
+    }
+    input {
+        margin-left: auto;
+    }
+}
