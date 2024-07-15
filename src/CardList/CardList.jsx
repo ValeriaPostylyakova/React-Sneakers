@@ -18,6 +18,10 @@ export default function CardList( {data, isLoading, searchValue} ) {
                 <Skeleton/>
                 <Skeleton/>
             </div>
+            <div className="container-skeleton">
+                <Skeleton/>
+                <Skeleton/>
+            </div>
         </div>
     ) : (
             <div className="container">

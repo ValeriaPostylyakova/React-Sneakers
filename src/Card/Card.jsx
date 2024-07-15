@@ -10,19 +10,22 @@ export default function Card ( {id, title, price, imageUrl} ) {
             <div className='card__container'>
                 <div className='card__images'>
                     <div className='card__img1'>
-                        <img src={imageUrl} alt="sneaker" />
+                        <img src={imageUrl} className='card__img-sneaker' alt="sneaker" />
                     </div>
-                    <button className='card__favorite-btn' onClick={() => setFavorive(!favorite)}>
-                    <img src={favorite ? "./public/favorite2.svg" : "./public/favorite1.svg"} alt="favorite" />
+                    <button 
+                    className='card__favorite-btn'
+                    onClick={() => setFavorive(!favorite)}>
+                    <img src={favorite ? "./public/favorite2.svg" : "./public/favorite1.svg"} 
+                    alt="favorite" />
                     </button>
                 </div>
-                <p className='text-sm font-medium'>{title}</p>
+                <p className='card__title'>{title}</p>
                 <div className='w-full flex justify-between items-center mt-5'>
                     <div className='text-start'>
-                        <p className='uppercase text-xs text-slate-400'>Цена:</p>
-                        <p className='font-bold text-sm'>{price}руб.</p>
+                        <p className='card__text-price'>Цена:</p>
+                        <p className='card__text'>{price}руб.</p>
                     </div>
-                    <button onClick={() => setIsAdded(!isAdded)}>
+                    <button onClick={() => setIsAdded(!isAdded)} className='card__button-add'>
                         <img src={isAdded ? "./public/isAdded2.svg" : "./public/isAdded1.svg"} />
                     </button>
                 </div>

@@ -13,7 +13,7 @@ export default function Header() {
     ]
 
     return (
-        <header className="border-b my-14">
+        <header className="border-b mb-14">
             <div className="w-11/12 m-auto flex justify-between items-center py-11">
                 <a className='logo display-block' href='/'>
                     <div className="flex items-center gap-3">
@@ -39,8 +39,8 @@ export default function Header() {
                     </li>
                     <li>
                         <a href="/" className="flex items-center gap-3">
-                            <img src="./public/user.svg" alt="drawer"/>
-                            <p className="opacity-70">Профиль</p>
+                            <img src="./public/user.svg" alt="user"/>
+                            <p className="opacity-70">Мои покупки</p>
                         </a>
                     </li>
                 </ul>

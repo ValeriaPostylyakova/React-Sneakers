@@ -1,6 +1,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import './ImageSlider.scss';
 
 export default function ImageSlider( {items} ) {
 
@@ -38,7 +39,7 @@ export default function ImageSlider( {items} ) {
       };
 
     return (
-        <section className='mb-14'>
+        <section className='slider'>
             <div className="w-10/12 m-auto">
                 <div>
                  <Slider {...settings}>

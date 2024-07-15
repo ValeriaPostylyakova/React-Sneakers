@@ -12,14 +12,15 @@
 .wrapper-skeleton {
     height: 100%;
     padding-bottom: 30px;
+    margin-left: 60px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .container-skeleton {
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
+
 
 @media screen and (max-width: 1240px) {
     .container {
@@ -32,15 +33,50 @@
 
 @media screen and (max-width: 1000px) {
     .container {
-        display: flex;
-        gap: 20px 60px;
-        margin-left: 10%;
-        flex-wrap: wrap;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 20px 50px;
+    }
+}
+
+@media screen and (max-width: 923px) {
+    .container {
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 923px) {
+    .container {
+        margin-left: -10px;
+        gap: 20px 15px;
     }
 }
 
 @media screen and (max-width: 763px) {
     .container {
-        margin-left: 0;
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        gap: 20px 30px;
+        padding-left: 40px;
+    }
+}
+
+@media screen and (max-width: 544px) {
+    .container {
+        padding-left: 0;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .container {
+        margin-left: 5px;
+        margin-top: -27px;
+        gap: 20px 10px;
     }
 }

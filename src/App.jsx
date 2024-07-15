@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.scss';
 import Header from './Header/Header';
-import ImageSlider from './ImageSlider';
+import ImageSlider from './Slider/ImageSlider';
 import CardList from './CardList/CardList';
 
 export default function App() {
@@ -34,11 +34,11 @@ export default function App() {
 
 
   return (
-    <div className='w-4/5 bg-white h-hull rounded-xl m-auto shadow-xl my-14'>
+    <div className='wrapper'>
       <Header/>
       <ImageSlider items={items}/>
       <section className="w-10/12 m-auto">
-        <div className="flex items-center justify-between mb-14">
+        <div className="search-container">
           <h1 className='title-hero'>Все кроссовки</h1>
           <div className='relative'>
           <input 
