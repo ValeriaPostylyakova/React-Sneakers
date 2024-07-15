@@ -9,7 +9,6 @@
     margin-bottom: 35px;
 }
 
-// .outline-none w-52 h-10 border rounded-md px-10 transition focus:border-slate-400
 .search {
     outline: none;
     width: 208px;
@@ -36,6 +35,7 @@
     font-weight: 700;
     font-size: 30px;
 }
+
 
 @media screen and (max-width: 1000px) {
     .wrapper {

@@ -3,6 +3,7 @@ import './App.scss';
 import Header from './Header/Header';
 import ImageSlider from './Slider/ImageSlider';
 import CardList from './CardList/CardList';
+import Drawer from './Drawer/Drawer';
 
 export default function App() {
   const [sneakers, setSneakers] = useState([]);
@@ -57,6 +58,9 @@ export default function App() {
         isLoading={isLoading}
         searchValue={searchValue}
         />
+      </section>
+      <section>
+        <Drawer/>
       </section>
     </div>
   )
