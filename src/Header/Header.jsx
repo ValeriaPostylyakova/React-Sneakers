@@ -2,12 +2,14 @@ import { useState } from 'react';
 import Menu from '../BurgerMenu/Menu';
 import './Header.scss';
 
+import drawer from '/assets/Drawer.svg';
+
 export default function Header( {drawerOpen} ) {
     const [menuActive, setMenuActive] = useState(false);
 
 
     const items = [
-        {id: 0, value: '0 руб.', href: '/', icon: '/assets/Drawer.svg'},
+        {id: 0, value: '0 руб.', href: '/', icon: drawer},
         {id: 1, value: 'Закладки', href: '/', icon: '/assets/favorite.svg'},
         {id: 2, value: 'Профиль', href: '/', icon: '/assets/user.svg'}
     ]
@@ -27,7 +29,7 @@ export default function Header( {drawerOpen} ) {
                 <ul>
                     <li>
                         <button onClick={drawerOpen} href="/" className="flex items-center gap-3">
-                            <img src='/assets/Drawer.svg' alt="drawer"/>
+                            <img src={drawer} alt="drawer"/>
                             <p className="font-bold opacity-70">0 руб.</p>
                         </button>
                     </li>
