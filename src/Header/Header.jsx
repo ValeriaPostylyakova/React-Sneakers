@@ -2,7 +2,8 @@ import { useState } from 'react';
 import Menu from '../BurgerMenu/Menu';
 import './Header.scss';
 
-import drawer from './src/assets/Drawer.svg';
+import drawer from "./assets/Drawer.svg";
+import favorite from "./assets/favorite.svg";
 
 export default function Header( {drawerOpen} ) {
     const [menuActive, setMenuActive] = useState(false);
@@ -35,7 +36,7 @@ export default function Header( {drawerOpen} ) {
                     </li>
                     <li>
                         <a href="/" className="flex items-center gap-3">
-                            <img src='/assets/favorite.svg' alt="favorite"/>
+                            <img src={favorite} alt="favorite"/>
                             <p className="opacity-70">Закладки</p>
                         </a>
                     </li>
