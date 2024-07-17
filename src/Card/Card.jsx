@@ -1,9 +1,14 @@
 import { useState } from 'react';
 import './Card.scss';
 
-export default function Card ( {id, title, price, imageUrl} ) {
-    const [favorite, setFavorive] = useState(false);
+export default function Card ( {id, title, price, imageUrl, onClickPlus} ) {
+
     const [isAdded, setIsAdded] = useState(false);
+
+    const clickAdded = () => {
+        setIsAdded(!isAdded);
+        onClickPlus({ title, price, imageUrl });
+    }
 
     return (
         <div className='card'>
@@ -14,8 +19,9 @@ export default function Card ( {id, title, price, imageUrl} ) {
                     </div>
                     <button 
                     className='card__favorite-btn'
-                    onClick={() => setFavorive(!favorite)}>
-                    <img src={favorite ? "./public/favorite2.svg" : "./public/favorite1.svg"} 
+                    title='Добавить в закладки'
+                    >
+                    <img src={"./public/favorite1.svg"} 
                     alt="favorite" />
                     </button>
                 </div>
@@ -25,8 +31,12 @@ export default function Card ( {id, title, price, imageUrl} ) {
                         <p className='card__text-price'>Цена:</p>
                         <p className='card__text'>{price}руб.</p>
                     </div>
-                    <button onClick={() => setIsAdded(!isAdded)} className='card__button-add'>
-                        <img src={isAdded ? "./public/isAdded2.svg" : "./public/isAdded1.svg"} />
+                    <button 
+                    title='Добавить в корзину' 
+                    className='card__button-add'
+                    onClick={clickAdded}>
+                        <img 
+                        src={isAdded ? './public/isAdded2.svg' : './public/isAdded1.svg'}/>
                     </button>
                 </div>
             </div>

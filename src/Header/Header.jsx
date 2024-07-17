@@ -2,12 +2,12 @@ import { useState } from 'react';
 import Menu from '../BurgerMenu/Menu';
 import './Header.scss';
 
-export default function Header() {
+export default function Header( {drawerOpen} ) {
     const [menuActive, setMenuActive] = useState(false);
 
 
     const items = [
-        {id: 0, value: '1250 руб.', href: '/', icon: './public/Drawer.svg'},
+        {id: 0, value: '0 руб.', href: '/', icon: './public/Drawer.svg'},
         {id: 1, value: 'Закладки', href: '/', icon: './public/favorite.svg'},
         {id: 2, value: 'Профиль', href: '/', icon: './public/user.svg'}
     ]
@@ -26,10 +26,10 @@ export default function Header() {
                 </a>
                 <ul>
                     <li>
-                        <a href="/" className="flex items-center gap-3">
+                        <button onClick={drawerOpen} href="/" className="flex items-center gap-3">
                             <img src="./public/Drawer.svg" alt="drawer"/>
-                            <p className="font-bold opacity-70">1250 руб.</p>
-                        </a>
+                            <p className="font-bold opacity-70">0 руб.</p>
+                        </button>
                     </li>
                     <li>
                         <a href="/" className="flex items-center gap-3">

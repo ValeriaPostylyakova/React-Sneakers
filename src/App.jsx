@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 import './App.scss';
 import Header from './Header/Header';
 import ImageSlider from './Slider/ImageSlider';
@@ -9,9 +10,26 @@ export default function App() {
   const [sneakers, setSneakers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchValue, setSearchValue] = useState('');
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const [drawerCard, setDrawerCard] = useState([]);
+
+
+
+  const DrawerOpen = () => {
+    setDrawerOpen(!drawerOpen);
+  }
 
   const onChangeSearchValue = (event) => {
     setSearchValue(event.target.value);
+  }
+
+  const onClickPlus = (obj) => {
+      setDrawerCard(prev => [...prev, obj])
+  }
+
+  const DeleteDrawerCard = (sneaker) => {
+    // setDrawerCard(drawerCard.filter((obj) => obj !== sneaker));
   }
 
   const items = [
@@ -23,7 +41,7 @@ export default function App() {
   ]
 
   useEffect(() => {
-     fetch('https://9b3fa2fbda761ff0.mokky.dev/items')
+     fetch('https://3ad519bdc442b341.mokky.dev/sneaker')
     .then(data => data.json())
     .then(data => setSneakers(data))
     .catch((err) => {
@@ -36,7 +54,7 @@ export default function App() {
 
   return (
     <div className='wrapper'>
-      <Header/>
+      <Header drawerOpen={DrawerOpen}/>
       <ImageSlider items={items}/>
       <section className="w-10/12 m-auto">
         <div className="search-container">
@@ -57,10 +75,16 @@ export default function App() {
         data={sneakers}
         isLoading={isLoading}
         searchValue={searchValue}
+        onClickPlus={onClickPlus}
         />
       </section>
       <section>
-        <Drawer/>
+        <Drawer 
+        drawerOpen={drawerOpen}
+        setDrawerOpen={setDrawerOpen}
+        items={drawerCard}
+        DeleteDrawerCard={DeleteDrawerCard}
+        />
       </section>
     </div>
   )

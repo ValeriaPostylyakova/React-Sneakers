@@ -1,25 +1,28 @@
 import './Drawer.scss';
+import DrawerCard from './DrawerCard';
 
-export default function Drawer() {
+export default function Drawer ( {drawerOpen, setDrawerOpen, items = [], DeleteDrawerCard} ) {
     return (
-        <div className='drawer-wrapper'>
+        <div>
+          <div className={drawerOpen ? 'drawer__blur' : ''}></div>
+          <div className={drawerOpen ? 'drawer-wrapper open' : 'drawer-wrapper'}>
             <div className="my-7 mx-5 flex flex-col">
-                <h1 className='text-2xl font-bold mb-7'>Корзина</h1>
+                <div className='mb-7 flex items-center w-full justify-between cursor-pointer'>
+                    <h1 className='text-2xl font-bold'>Корзина</h1>
+                    <img onClick={() => setDrawerOpen(false)} width={20} src="./public/DrawerClose.svg" />
+                </div>
                     <div className='flex flex-col gap-3'>
-                        <div className='border rounded-2xl relative'>
-                            <div className="flex items-center justify-between gap-3 py-5 px-3">
-                                <img src="./public/sneakers/sneakers-1.jpg" width={70} alt="sneakers" />
-                                <div>
-                                    <p className='text-ms leading-none mb-3'>Мужские Кроссовки Nike Air Max 270</p>
-                                    <p className='font-bold'>12 999 руб.</p>
-                                </div>
-                                <button className='absolute bottom-3 right-3'>
-                                    <img src="./public/sneaker-dell.svg" alt="dell" />
-                                </button>
-                            </div>
-                        </div>
+                        {
+                            items.map((obj) => (
+                                <DrawerCard
+                                DeleteDrawerCard={DeleteDrawerCard}
+                                key={obj.id}
+                                {...obj}
+                                />
+                            ))
+                        }
                     </div>
-                    <div className='mt-7 flex flex-col gap-5'>
+                    <div className='absolute bottom-4 mt-7 flex flex-col gap-5'>
                         <div className='flex items-end justify-between'>
                             <p>Итого: </p>
                             <span className='span-border'></span>
@@ -41,5 +44,6 @@ export default function Drawer() {
                     </div>
                 </div>
             </div>
+        </div>
     )
 }

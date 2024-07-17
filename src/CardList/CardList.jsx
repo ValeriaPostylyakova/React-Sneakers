@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import Card from '../Card/Card';
 import { Skeleton } from '../Skeleton';
 import './CardList.scss';
 
-export default function CardList( {data, isLoading, searchValue} ) {
+export default function CardList( {data, isLoading, searchValue, onClickPlus} ) {
+
     return (
         isLoading ? (
         <div className="wrapper-skeleton">
@@ -33,6 +35,7 @@ export default function CardList( {data, isLoading, searchValue} ) {
                     <Card
                     key={obj.id}
                     {...obj}
+                    onClickPlus={onClickPlus}
                     />
                 ))}
             </div>
