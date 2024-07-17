@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Menu from '../BurgerMenu/Menu';
 import './Header.scss';
 
-import drawer from '/assets/Drawer.svg';
+import drawer from './src/assets/Drawer.svg';
 
 export default function Header( {drawerOpen} ) {
     const [menuActive, setMenuActive] = useState(false);
