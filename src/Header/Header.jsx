@@ -2,14 +2,18 @@ import { useState } from 'react';
 import Menu from '../BurgerMenu/Menu';
 import './Header.scss';
 
+import drawer from './src/assets/Drawer.svg';
+import favorite from './src/assets/favorite.svg';
+import user from './src/assets/user.svg';
+
 export default function Header( {drawerOpen} ) {
     const [menuActive, setMenuActive] = useState(false);
 
 
     const items = [
-        {id: 0, value: '0 руб.', href: '/', icon: './src/assets/Drawer.svg'},
-        {id: 1, value: 'Закладки', href: '/', icon: './src/assets/favorite.svg'},
-        {id: 2, value: 'Профиль', href: '/', icon: './src/assets/user.svg'}
+        {id: 0, value: '0 руб.', href: '/', icon: drawer},
+        {id: 1, value: 'Закладки', href: '/', icon: favorite},
+        {id: 2, value: 'Профиль', href: '/', icon: user}
     ]
 
     return (
@@ -27,19 +31,19 @@ export default function Header( {drawerOpen} ) {
                 <ul>
                     <li>
                         <button onClick={drawerOpen} href="/" className="flex items-center gap-3">
-                            <img src="./src/assets/Drawer.svg" alt="drawer"/>
+                            <img src={drawer} alt="drawer"/>
                             <p className="font-bold opacity-70">0 руб.</p>
                         </button>
                     </li>
                     <li>
                         <a href="/" className="flex items-center gap-3">
-                            <img src="./src/assets/favorite.svg" alt="drawer"/>
+                            <img src={favorite} alt="favorite"/>
                             <p className="opacity-70">Закладки</p>
                         </a>
                     </li>
                     <li>
                         <a href="/" className="flex items-center gap-3">
-                            <img src="./src/assets/user.svg" alt="user"/>
+                            <img src={user} alt="user"/>
                             <p className="opacity-70">Мои покупки</p>
                         </a>
                     </li>
