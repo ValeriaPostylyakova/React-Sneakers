@@ -21,7 +21,7 @@ export default function Card ( {id, title, price, imageUrl, onClickPlus} ) {
                     className='card__favorite-btn'
                     title='Добавить в закладки'
                     >
-                    <img src={"./public/favorite1.svg"} 
+                    <img src={"./src/assets/favorite1.svg"} 
                     alt="favorite" />
                     </button>
                 </div>
@@ -36,7 +36,7 @@ export default function Card ( {id, title, price, imageUrl, onClickPlus} ) {
                     className='card__button-add'
                     onClick={clickAdded}>
                         <img 
-                        src={isAdded ? './public/isAdded2.svg' : './public/isAdded1.svg'}/>
+                        src={isAdded ? './src/assets/isAdded2.svg' : './src/assets/isAdded1.svg'}/>
                     </button>
                 </div>
             </div>

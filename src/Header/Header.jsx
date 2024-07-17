@@ -7,9 +7,9 @@ export default function Header( {drawerOpen} ) {
 
 
     const items = [
-        {id: 0, value: '0 руб.', href: '/', icon: './public/Drawer.svg'},
-        {id: 1, value: 'Закладки', href: '/', icon: './public/favorite.svg'},
-        {id: 2, value: 'Профиль', href: '/', icon: './public/user.svg'}
+        {id: 0, value: '0 руб.', href: '/', icon: './src/assets/Drawer.svg'},
+        {id: 1, value: 'Закладки', href: '/', icon: './src/assets/favorite.svg'},
+        {id: 2, value: 'Профиль', href: '/', icon: './src/assets/user.svg'}
     ]
 
     return (
@@ -17,7 +17,7 @@ export default function Header( {drawerOpen} ) {
             <div className="w-11/12 m-auto flex justify-between items-center py-11">
                 <a className='logo display-block' href='/'>
                     <div className="flex items-center gap-3">
-                        <img src="./public/logo.svg" alt="logo" />
+                        <img src="./src/assets/logo.svg" alt="logo" />
                         <div className='title'>
                             <h1 className="text-lg uppercase font-bold">REACT SNEAKERS</h1>
                             <h3 className="opacity-70">Магазин лучших кроссовок</h3>
@@ -27,19 +27,19 @@ export default function Header( {drawerOpen} ) {
                 <ul>
                     <li>
                         <button onClick={drawerOpen} href="/" className="flex items-center gap-3">
-                            <img src="./public/Drawer.svg" alt="drawer"/>
+                            <img src="./src/assets/Drawer.svg" alt="drawer"/>
                             <p className="font-bold opacity-70">0 руб.</p>
                         </button>
                     </li>
                     <li>
                         <a href="/" className="flex items-center gap-3">
-                            <img src="./public/favorite.svg" alt="drawer"/>
+                            <img src="./src/assets/favorite.svg" alt="drawer"/>
                             <p className="opacity-70">Закладки</p>
                         </a>
                     </li>
                     <li>
                         <a href="/" className="flex items-center gap-3">
-                            <img src="./public/user.svg" alt="user"/>
+                            <img src="./src/assets/user.svg" alt="user"/>
                             <p className="opacity-70">Мои покупки</p>
                         </a>
                     </li>

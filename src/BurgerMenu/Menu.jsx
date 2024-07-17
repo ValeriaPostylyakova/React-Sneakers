@@ -5,7 +5,7 @@ export default function Menu({items, active, setActive}) {
         <div className={active ? 'burger-menu active' : 'burger-menu'}>
             <div className="burger-menu__container">
                 <button onClick={() => setActive(false)}>
-                    <img src="./public/close.png" width={20} alt="close" />
+                    <img src="./src/assets/close.png" width={20} alt="close" />
                 </button>
                 <ul className='burger-menu__list'>
                 {

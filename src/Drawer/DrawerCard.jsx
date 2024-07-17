@@ -8,7 +8,7 @@ export default function DrawerCard ( {title, price, imageUrl, DeleteDrawerCard} 
                     <p className='font-bold'>{price} pуб.</p>
                 </div>
                 <button onClick={DeleteDrawerCard} className='absolute bottom-3 right-3'>
-                    <img src="./public/sneaker-dell.svg" alt="dell" />
+                    <img src="./src/assets/sneaker-dell.svg" alt="dell" />
                  </button>
             </div>
         </div>

@@ -9,7 +9,7 @@ export default function Drawer ( {drawerOpen, setDrawerOpen, items = [], DeleteD
             <div className="my-7 mx-5 flex flex-col">
                 <div className='mb-7 flex items-center w-full justify-between cursor-pointer'>
                     <h1 className='text-2xl font-bold'>Корзина</h1>
-                    <img onClick={() => setDrawerOpen(false)} width={20} src="./public/DrawerClose.svg" />
+                    <img onClick={() => setDrawerOpen(false)} width={20} src="./src/assets/DrawerClose.svg" />
                 </div>
                     <div className='flex flex-col gap-3'>
                         {
@@ -37,7 +37,7 @@ export default function Drawer ( {drawerOpen, setDrawerOpen, items = [], DeleteD
                             <div className='flex items-center justify-center'>
                                 <p className='text-white font-medium mr-10'>Оформить заказ</p>
                                 <span>
-                                    <img src="./public/btn-arrow.svg" alt="arrow" />
+                                    <img src="./src/assets/btn-arrow.svg" alt="arrow" />
                                 </span>
                             </div>
                         </button>

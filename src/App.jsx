@@ -33,11 +33,11 @@ export default function App() {
   }
 
   const items = [
-    {id: 1, img: './public/slider-img.png'},
-    {id: 2, img: './public/slider-img.png'},
-    {id: 3, img: './public/slider-img.png'},
-    {id: 4, img: './public/slider-img.png'},
-    {id: 5, img: './public/slider-img.png'}
+    {id: 1, img: './src/assets/slider-img.png'},
+    {id: 2, img: './src/assets/slider-img.png'},
+    {id: 3, img: './src/assets/slider-img.png'},
+    {id: 4, img: './src/assets/slider-img.png'},
+    {id: 5, img: './src/assets/slider-img.png'}
   ]
 
   useEffect(() => {
@@ -66,7 +66,7 @@ export default function App() {
           className='search' 
           type="text" placeholder='Поиск...' />
           <img 
-          src="./public/search.svg" 
+          src="./src/assets/search.svg" 
           className='absolute top-2 left-2 mt-1'
           alt="search" />
           </div>
