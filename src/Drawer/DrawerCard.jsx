@@ -1,4 +1,4 @@
-export default function DrawerCard ( {title, price, imageUrl, DeleteDrawerCard} ) {
+export default function DrawerCard ( {id, title, price, imageUrl, DeleteCard} ) {
     return (
         <div className='border rounded-2xl relative'>
             <div className="flex items-center justify-between gap-3 py-5 px-3">
@@ -7,7 +7,7 @@ export default function DrawerCard ( {title, price, imageUrl, DeleteDrawerCard} 
                     <p className='text-ms leading-none mb-3'>{title}</p>
                     <p className='font-bold'>{price} pуб.</p>
                 </div>
-                <button onClick={DeleteDrawerCard} className='absolute bottom-3 right-3'>
+                <button onClick={() => DeleteCard(id)} className='absolute bottom-3 right-3'>
                     <img src="./src/assets/sneaker-dell.svg" alt="dell" />
                  </button>
             </div>

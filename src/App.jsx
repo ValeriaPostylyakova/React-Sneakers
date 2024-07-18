@@ -14,7 +14,16 @@ export default function App() {
 
   const [drawerCard, setDrawerCard] = useState([]);
 
+  useEffect(() => {
+    axios.get('https://3ad519bdc442b341.mokky.dev/sneaker')
+    .then((res) => setSneakers(res.data))
+    .catch(err => console.log(err))
+    .finally(() => setIsLoading(false))
 
+    axios.get('https://3ad519bdc442b341.mokky.dev/DrawerCard')
+    .then((res) => setDrawerCard(res.data));
+
+  }, [])
 
   const DrawerOpen = () => {
     setDrawerOpen(!drawerOpen);
@@ -25,11 +34,13 @@ export default function App() {
   }
 
   const onClickPlus = (obj) => {
+    axios.post('https://3ad519bdc442b341.mokky.dev/DrawerCard', obj)
       setDrawerCard(prev => [...prev, obj])
   }
 
-  const DeleteDrawerCard = (sneaker) => {
-    // setDrawerCard(drawerCard.filter((obj) => obj !== sneaker));
+  const DeleteCard = (id) => {
+    axios.delete(`https://3ad519bdc442b341.mokky.dev/DrawerCard/${id}`)
+    setDrawerCard((prev) => prev.filter((prev) => prev.id !== id));
   }
 
   const items = [
@@ -39,18 +50,6 @@ export default function App() {
     {id: 4, img: './src/assets/slider-img.png'},
     {id: 5, img: './src/assets/slider-img.png'}
   ]
-
-  useEffect(() => {
-     fetch('https://3ad519bdc442b341.mokky.dev/sneaker')
-    .then(data => data.json())
-    .then(data => setSneakers(data))
-    .catch((err) => {
-      console.log(err);
-      alert('Ошибка при получении данных');
-    })
-    .finally(() => setIsLoading(false));
-  }, [])
-
 
   return (
     <div className='wrapper'>
@@ -83,7 +82,7 @@ export default function App() {
         drawerOpen={drawerOpen}
         setDrawerOpen={setDrawerOpen}
         items={drawerCard}
-        DeleteDrawerCard={DeleteDrawerCard}
+        DeleteCard={DeleteCard}
         />
       </section>
     </div>
