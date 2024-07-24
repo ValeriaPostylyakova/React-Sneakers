@@ -40,7 +40,7 @@ export default function ImageSlider( {items} ) {
 
     return (
         <section className='slider'>
-            <div className="w-10/12 m-auto">
+            <div className="w-10/12 m-auto mt-14">
                 <div>
                  <Slider {...settings}>
                     {items.map((slide, index) => (

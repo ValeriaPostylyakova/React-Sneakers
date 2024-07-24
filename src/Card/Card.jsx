@@ -1,13 +1,29 @@
 import { useState } from 'react';
 import './Card.scss';
 
-export default function Card ( {id, title, price, imageUrl, onClickPlus} ) {
+export default function Card ( 
+    {id, 
+    title, 
+    price, 
+    imageUrl,
+    onClickPlus, 
+    onClickFavorite, 
+    favorited = false,
+    added = false
+}
+ ) {
 
-    const [isAdded, setIsAdded] = useState(false);
+    const [isAdded, setIsAdded] = useState(added);
+    const [isFavorite, setIsFavorite] = useState(favorited);
 
     const clickAdded = () => {
         setIsAdded(!isAdded);
-        onClickPlus({ title, price, imageUrl });
+        onClickPlus({ id, title, price, imageUrl });
+    }
+
+    const clickFavorite = () => {
+        setIsFavorite(!isFavorite);
+        onClickFavorite({ id, title, price, imageUrl });
     }
 
     return (
@@ -17,11 +33,12 @@ export default function Card ( {id, title, price, imageUrl, onClickPlus} ) {
                     <div className='card__img1'>
                         <img src={imageUrl} className='card__img-sneaker' alt="sneaker" />
                     </div>
-                    <button 
+                    <button
+                    onClick={clickFavorite}
                     className='card__favorite-btn'
                     title='Добавить в закладки'
                     >
-                    <img src={"./src/assets/favorite1.svg"} 
+                    <img src={isFavorite ? "./src/assets/favorite2.svg" : "./src/assets/favorite1.svg"} 
                     alt="favorite" />
                     </button>
                 </div>

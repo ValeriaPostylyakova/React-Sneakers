@@ -13,15 +13,15 @@ export default function DrawerList ( {items, DeleteCard, setDrawerOpen} ) {
                 ) : (
                     <>
                          <div className='flex flex-col gap-3'>
-                {items.map((obj, index) => (
-                    <DrawerCard
-                        key={index}
-                        {...obj}
-                        DeleteCard={DeleteCard} />
-                ))}
+                             {items.map((obj, index) => (
+                                <DrawerCard
+                                    key={index}
+                                    {...obj}
+                                    DeleteCard={DeleteCard} />
+                            ))}
 
-            </div>
-            <div className='absolute bottom-4 mt-7 flex flex-col gap-5'>
+                        </div>
+                <div className='absolute bottom-4 mt-7 flex flex-col gap-5'>
                     <div className='flex items-end justify-between'>
                         <p>Итого: </p>
                         <span className='span-border'></span>

@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Card from '../Card/Card';
 import { Skeleton } from '../Skeleton';
 import './CardList.scss';
+import { AppContext } from '../App';
 
-export default function CardList( {data, isLoading, searchValue, onClickPlus} ) {
+export default function CardList( {data, drawerCard, isLoading, searchValue, onClickPlus, onClickFavorite} ) {
+    const { getAddedItems } = useContext(AppContext);
 
     return (
         isLoading ? (
@@ -31,11 +33,13 @@ export default function CardList( {data, isLoading, searchValue, onClickPlus} ) 
                     const title = obj.title.toLowerCase();
                     return title.includes(searchValue.toLowerCase());
                 })
-                .map((obj) => (
+                .map((obj, index) => (
                     <Card
-                    key={obj.id}
+                    key={index}
                     {...obj}
                     onClickPlus={onClickPlus}
+                    onClickFavorite={onClickFavorite}
+                    added={getAddedItems(obj.title)}
                     />
                 ))}
             </div>
