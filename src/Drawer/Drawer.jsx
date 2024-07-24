@@ -1,6 +1,8 @@
 import './Drawer.scss';
+import { AppContext } from '../App';
 import EmptyDrawer from './EmptyDrawer';
 import DrawerList from './DrawerList';
+import { useContext } from 'react';
 
 export default function Drawer ( {drawerOpen, setDrawerOpen, items = [], DeleteCard} ) {
     return (

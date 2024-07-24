@@ -2,9 +2,8 @@ import { useContext } from "react";
 import Card from "../Card/Card";
 import { AppContext } from "../App";
 
-export default function Favorite( { onClickPlus, onClickFavorite } ) {
-    const { favorites } = useContext(AppContext);
-
+export default function Favorite() {
+    const { favorites, onClickPlus, onClickFavorite } = useContext(AppContext);
     return (
         <>
 

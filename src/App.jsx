@@ -41,10 +41,10 @@ export default function App() {
     setSearchValue(event.target.value);
   }
 
-  const onClickPlus = (obj) => {
-
-    if(drawerCard.find(prev => prev.id === obj.id)) {
-      setDrawerCard(prev => prev.filter((item) => item.id !== obj.id));
+  const onClickPlus = async (obj) => {
+    console.log(obj);
+    if(drawerCard.find(prev => prev.title === obj.title)) {
+      setDrawerCard(prev => prev.filter((item) => item.title !== obj.title));
       axios.delete(`https://3ad519bdc442b341.mokky.dev/DrawerCard/${obj.id}`);
     } else {
       axios.post('https://3ad519bdc442b341.mokky.dev/DrawerCard', obj)
@@ -57,7 +57,7 @@ export default function App() {
   }
 
   const DeleteCard = (id) => {
-    axios.delete(`https://3ad519bdc442b341.mokky.dev/DrawerCard/${id}`)
+    axios.delete(`https://3ad519bdc442b341.mokky.dev/DrawerCard/${id}`);
     setDrawerCard((prev) => prev.filter((prev) => prev.id !== id));
   }
 
@@ -85,11 +85,17 @@ export default function App() {
   ]
 
   return (
-    <AppContext.Provider value={{drawerCard, favorites, sneakers, getAddedItems}}>
+    <AppContext.Provider value={
+      {drawerCard, DrawerOpen, 
+      drawerOpen, setDrawerOpen, DeleteCard,
+      favorites, sneakers, 
+      getAddedItems, onClickPlus, 
+      onClickFavorite}
+      }>
       <div className='wrapper'>
       <>
        <Routes>
-        <Route path='/React-Sneakers/' element={<Header drawerOpen={DrawerOpen} />}>
+        <Route path='/React-Sneakers/' element={<Header/>}>
           <Route index
             element={
             <Home 

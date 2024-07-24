@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { AppContext } from '../App';
 import Menu from '../BurgerMenu/Menu';
 import './Header.scss';
 import { Link, Outlet } from 'react-router-dom';
 
-export default function Header( {drawerOpen} ) {
+
+export default function Header() {
     const [menuActive, setMenuActive] = useState(false);
-
-
+   const { drawerCard, DrawerOpen } = useContext(AppContext);
+    const totalPrice = drawerCard.reduce((prev, obj) => obj.price + prev, 0);
     const items = [
         {id: 0, value: '0 руб.', href: '/', icon: './src/assets/drawer.svg'},
         {id: 1, value: 'Закладки', href: '/', icon: './src/assets/favorite.svg'},
@@ -28,9 +30,9 @@ export default function Header( {drawerOpen} ) {
                 </Link>
                 <ul>
                     <li>
-                        <button onClick={drawerOpen} className="flex items-center gap-3">
+                        <button onClick={DrawerOpen} className="flex items-center gap-3">
                             <img src="./src/assets/drawer.svg"  alt="drawer"/>
-                                <p className="font-bold opacity-70">0 руб.</p>
+                                <p className="font-bold opacity-70">{totalPrice} руб.</p>
                         </button>
                     </li>
                     <li>
