@@ -4,8 +4,7 @@ import { Skeleton } from '../Skeleton';
 import './CardList.scss';
 import { AppContext } from '../App';
 
-export default function CardList( {data, drawerCard, isLoading, searchValue, onClickPlus, onClickFavorite} ) {
-    const { getAddedItems } = useContext(AppContext);
+export default function CardList( {data, isLoading, searchValue, onClickPlus, onClickFavorite} ) {
 
     return (
         isLoading ? (
@@ -39,7 +38,6 @@ export default function CardList( {data, drawerCard, isLoading, searchValue, onC
                     {...obj}
                     onClickPlus={onClickPlus}
                     onClickFavorite={onClickFavorite}
-                    added={getAddedItems(obj.title)}
                     />
                 ))}
             </div>

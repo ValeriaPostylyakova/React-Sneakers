@@ -1,4 +1,6 @@
+
 export default function DecoratedDrawer( {setDrawerOpen} ) {
+
     return (
         <div className='px-4 flex flex-col items-center justify-center gap-10 h-screen'>
             <img width={83} src="./src/assets/decoratedDrawer.png" alt="drawerDecoratedImg" className='mb-3' />

@@ -20,14 +20,20 @@ export default function App() {
 
   useEffect(() => {
     async function fetchData () {
-      const sneakerData = await axios.get('https://3ad519bdc442b341.mokky.dev/sneaker');
-      const DrawerData = await axios.get('https://3ad519bdc442b341.mokky.dev/DrawerCard')
-      const FavoritesData = await axios.get('https://3ad519bdc442b341.mokky.dev/favorites')
-   
-      setDrawerCard(DrawerData.data);
-      setFavorites(FavoritesData.data);
-      setSneakers(sneakerData.data);
-      setIsLoading(false);
+      try {
+        const sneakerData = await axios.get('https://3ad519bdc442b341.mokky.dev/sneaker2');
+        const DrawerData = await axios.get('https://3ad519bdc442b341.mokky.dev/DrawerCard')
+        const FavoritesData = await axios.get('https://3ad519bdc442b341.mokky.dev/favorites')
+     
+        setDrawerCard(DrawerData.data);
+        setFavorites(FavoritesData.data);
+        setSneakers(sneakerData.data);
+      }
+        catch(err) {
+          alert('Ошибка при получении данных');
+          console.log(err);
+        }
+        setIsLoading(false);
     }
 
     fetchData();
@@ -42,10 +48,9 @@ export default function App() {
   }
 
   const onClickPlus = (obj) => {
-
-    if(drawerCard.find(prev => prev.id === obj.id)) {
-      setDrawerCard(prev => prev.filter((item) => item.id !== obj.id));
+    if(drawerCard.find(prev => Number(prev.id) === Number(obj.id))) {
       axios.delete(`https://3ad519bdc442b341.mokky.dev/DrawerCard/${obj.id}`);
+      setDrawerCard(prev => prev.filter((item) => Number(item.id) !== Number(obj.id)));
     } else {
       axios.post('https://3ad519bdc442b341.mokky.dev/DrawerCard', obj)
       setDrawerCard(prev => [...prev, obj])
@@ -57,7 +62,7 @@ export default function App() {
   }
 
   const DeleteCard = (id) => {
-    axios.delete(`https://3ad519bdc442b341.mokky.dev/DrawerCard/${id}`)
+    axios.delete(`https://3ad519bdc442b341.mokky.dev/DrawerCard/${id}`);
     setDrawerCard((prev) => prev.filter((prev) => prev.id !== id));
   }
 
@@ -85,11 +90,17 @@ export default function App() {
   ]
 
   return (
-    <AppContext.Provider value={{drawerCard, favorites, sneakers, getAddedItems}}>
+    <AppContext.Provider value={
+      {drawerCard, setDrawerCard, DrawerOpen, 
+      drawerOpen, setDrawerOpen, DeleteCard,
+      favorites, sneakers, 
+      getAddedItems, onClickPlus, 
+      onClickFavorite}
+      }>
       <div className='wrapper'>
       <>
        <Routes>
-        <Route path='/React-Sneakers/' element={<Header drawerOpen={DrawerOpen} />}>
+        <Route path='/React-Sneakers/' element={<Header/>}>
           <Route index
             element={
             <Home 

@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import './Card.scss';
+import { AppContext } from '../App';
 
 export default function Card ( 
     {id, 
@@ -8,16 +9,13 @@ export default function Card (
     imageUrl,
     onClickPlus, 
     onClickFavorite, 
-    favorited = false,
-    added = false
+    favorited = false
 }
  ) {
-
-    const [isAdded, setIsAdded] = useState(added);
     const [isFavorite, setIsFavorite] = useState(favorited);
+    const { getAddedItems } = useContext(AppContext);
 
     const clickAdded = () => {
-        setIsAdded(!isAdded);
         onClickPlus({ id, title, price, imageUrl });
     }
 
@@ -53,7 +51,7 @@ export default function Card (
                     className='card__button-add'
                     onClick={clickAdded}>
                         <img 
-                        src={isAdded ? './src/assets/isAdded2.svg' : './src/assets/isAdded1.svg'}/>
+                        src={getAddedItems(title) ? './src/assets/isAdded2.svg' : './src/assets/isAdded1.svg'}/>
                     </button>
                 </div>
             </div>
