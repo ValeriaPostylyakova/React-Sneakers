@@ -21,7 +21,7 @@ export default function App() {
   useEffect(() => {
     async function fetchData () {
       try {
-        const sneakerData = await axios.get('https://3ad519bdc442b341.mokky.dev/sneaker2');
+        const sneakerData = await axios.get('https://3ad519bdc442b341.mokky.dev/sneaker');
         const DrawerData = await axios.get('https://3ad519bdc442b341.mokky.dev/DrawerCard')
         const FavoritesData = await axios.get('https://3ad519bdc442b341.mokky.dev/favorites')
      
@@ -47,37 +47,56 @@ export default function App() {
     setSearchValue(event.target.value);
   }
 
-  const onClickPlus = (obj) => {
-    if(drawerCard.find(prev => Number(prev.id) === Number(obj.id))) {
-      axios.delete(`https://3ad519bdc442b341.mokky.dev/DrawerCard/${obj.id}`);
-      setDrawerCard(prev => prev.filter((item) => Number(item.id) !== Number(obj.id)));
-    } else {
-      axios.post('https://3ad519bdc442b341.mokky.dev/DrawerCard', obj)
-      setDrawerCard(prev => [...prev, obj])
+  const onClickPlus = async (obj) => {
+    try {
+      if(drawerCard.find(prev => prev.parentId === obj.id)) {
+        axios.delete(`https://3ad519bdc442b341.mokky.dev/DrawerCard/${obj.id}`);
+        setDrawerCard(prev => prev.filter(item => item.id !== obj.id));
+      } else {
+        const { data } = await axios.post('https://3ad519bdc442b341.mokky.dev/DrawerCard', obj);
+        setDrawerCard(prev => [...prev, data]);
+      }
+    } catch(err) {
+      alert('Ошибка при добавлении в корзину');
     }
   }
 
-  const getAddedItems = (title) => {
-    return drawerCard.some((item) => item.title === title);
+  const getAddedItems = (id) => {
+    return drawerCard.some((item) => item.parentId === id);
   }
 
   const DeleteCard = (id) => {
-    axios.delete(`https://3ad519bdc442b341.mokky.dev/DrawerCard/${id}`);
-    setDrawerCard((prev) => prev.filter((prev) => prev.id !== id));
+    try {
+      axios.delete(`https://3ad519bdc442b341.mokky.dev/DrawerCard/${id}`);
+      setDrawerCard((prev) => prev.filter((prev) => prev.id !== id));
+    } catch(err) {
+      alert('Ошибка при удалении товара из корзины');
+    }
   }
 
   const onClickFavorite = async (obj) => {
     try {
-      if (favorites.find(FavoritObj => FavoritObj.id === obj.id)) {
-        axios.delete(`https://3ad519bdc442b341.mokky.dev/favorites/${obj.id}`)
-        
+      if(favorites.find((prev) => prev.parentId === obj.id)) {
+        setFavorites((prev) => prev.filter((prev) => prev.id !== obj.id));
+        axios.delete(`https://3ad519bdc442b341.mokky.dev/favorites/${obj.id}`);
       } else {
         const { data } = await axios.post('https://3ad519bdc442b341.mokky.dev/favorites', obj);
         setFavorites((prev) => [...prev, data]);
       }
     } catch(err) {
-      console.log(err);
-      alert('Ошибка при получении закладок');
+      alert('Ошибка при добавлении в закладки');
+    }
+  }
+
+  const getFavoriteItems = (id) => {
+    return favorites.some((item) => item.id === id);
+  }
+
+  const DeleteFavorite = (id) => {
+    try {
+      axios.delete(`https://3ad519bdc442b341.mokky.dev/favorites/${id}`);
+    } catch(err) {
+      alert('Ошибка при удалении товара из закладок');
     }
   }
 
@@ -94,13 +113,16 @@ export default function App() {
       {drawerCard, setDrawerCard, DrawerOpen, 
       drawerOpen, setDrawerOpen, DeleteCard,
       favorites, sneakers, 
-      getAddedItems, onClickPlus, 
-      onClickFavorite}
+      getAddedItems, onClickPlus,
+      getFavoriteItems, 
+      onClickFavorite, DeleteFavorite}
       }>
       <div className='wrapper'>
       <>
        <Routes>
+        
         <Route path='/React-Sneakers/' element={<Header/>}>
+          
           <Route index
             element={
             <Home 
@@ -111,26 +133,28 @@ export default function App() {
             sneakers={sneakers}
             isLoading={isLoading}
             onClickPlus={onClickPlus}
+            getFavoriteItems={getFavoriteItems}
             onClickFavorite={onClickFavorite}
             />
           }/>
+          
           <Route path='favorite' element={ 
-            <Favorite 
+            <Favorite
             onClickPlus={onClickPlus}
-            onClickFavorite={onClickFavorite}
+            DeleteFavorite={DeleteFavorite}
             />}/>
-            <Route path='purchases' element={<Purchases/>}/>
+            
+          <Route path='orders' element={<Purchases/>}/>
+          
           </Route>
         </Routes>
       </>
-      <section>
-            <Drawer 
-              drawerOpen={drawerOpen}
-              setDrawerOpen={setDrawerOpen}
-              items={drawerCard}
-              DeleteCard={DeleteCard}
-              />
-        </section>
+      <Drawer 
+        drawerOpen={drawerOpen}
+        setDrawerOpen={setDrawerOpen}
+        items={drawerCard}
+        DeleteCard={DeleteCard}
+        />
     </div>
     </AppContext.Provider>
   )

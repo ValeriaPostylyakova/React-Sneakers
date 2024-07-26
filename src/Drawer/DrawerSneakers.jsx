@@ -1,13 +1,9 @@
-import { useContext } from 'react';
+import { useDrawerPrice } from '../hooks/useDrawerPrice';
 import DrawerCard from './DrawerCard';
-import { AppContext } from '../App';
 
 export default function DrawerSneakers ( {items, DeleteCard, onClickOrder} ) {
-    const { drawerCard } = useContext(AppContext);
-
-    const totalDrawerPrice = drawerCard.reduce((prev, obj) => obj.price + prev, 0);
-    const summTax = (totalDrawerPrice / 100 * 5).toFixed(0);
-    const totalSumm = Number(totalDrawerPrice) + Number(summTax)
+    
+    const { totalPrice, summTax, totalSumm } = useDrawerPrice();
 
     return (
         <>
@@ -23,7 +19,7 @@ export default function DrawerSneakers ( {items, DeleteCard, onClickOrder} ) {
             <div className='flex items-end justify-between'>
                 <p>Цена: </p>
                 <span className='span-border'></span>
-                <p className='font-medium'>{totalDrawerPrice} руб.</p>
+                <p className='font-medium'>{totalPrice} руб.</p>
             </div>
             <div className='flex items-end justify-between'>
                 <p>Налог 5%:</p>

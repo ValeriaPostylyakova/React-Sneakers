@@ -1,8 +1,11 @@
 import { useContext } from "react";
-import Card from "../Card/Card";
 import { AppContext } from "../App";
+import { Link } from "react-router-dom";
 
-export default function Favorite() {
+import Card from "../Card/Card";
+import FavoriteCard from "../FavoriteCard";
+
+export default function Favorite({DeleteFavorite}) {
     const { favorites, onClickPlus, onClickFavorite } = useContext(AppContext);
     return (
         <>
@@ -11,20 +14,14 @@ export default function Favorite() {
                 <div className="h-full mx-10 pb-10">
                     <div className="flex items-center gap-5 w-full my-10">
                         <button>
-                            <a href="/"><img src="./src/assets/favorite-arrow.svg" alt="arrow" /></a>
+                            <Link to="/React-Sneakers/"><img src="./src/assets/favorite-arrow.svg" alt="arrow" /></Link>
                         </button>
                         <h1 className="text-2xl font-bold">Мои закладки</h1>
                     </div>
                 <div className='grid grid-cols-4 gap-10'>
                         {
                             favorites.map((item, index) => (
-                                <Card 
-                                key={index}
-                                {...item}
-                                favorited={true}
-                                onClickPlus={onClickPlus}
-                                onClickFavorite={onClickFavorite}
-                                />
+                                <FavoriteCard key={index} {...item}/>
                             ))
                         }
                     </div>

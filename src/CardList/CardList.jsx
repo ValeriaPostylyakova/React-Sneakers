@@ -2,9 +2,8 @@ import { useContext, useState } from 'react';
 import Card from '../Card/Card';
 import { Skeleton } from '../Skeleton';
 import './CardList.scss';
-import { AppContext } from '../App';
 
-export default function CardList( {data, isLoading, searchValue, onClickPlus, onClickFavorite} ) {
+export default function CardList( {data, isLoading, searchValue, onClickPlus, onClickFavorite, getFavoriteItems} ) {
 
     return (
         isLoading ? (

@@ -1,9 +1,12 @@
 import './Drawer.scss';
 import axios from 'axios';
-import DrawerInfo from './DrawerInfo';
-import DrawerSneakers from './DrawerSneakers';
 import { useContext, useState } from 'react';
 import { AppContext } from '../App';
+
+import DrawerInfo from './DrawerInfo';
+import DrawerSneakers from './DrawerSneakers';
+
+const delay = () => new Promise((res) => setTimeout(res, 1000))
 
 export default function Drawer ( {drawerOpen, setDrawerOpen, items = [], DeleteCard} ) {
     const { drawerCard, setDrawerCard } = useContext(AppContext);
@@ -12,10 +15,17 @@ export default function Drawer ( {drawerOpen, setDrawerOpen, items = [], DeleteC
 
     const onClickOrder = async () => {
         try {
-            const { data } = await axios.post('https://3ad519bdc442b341.mokky.dev/orders', drawerCard);
+            const { data } = await axios.post('https://3ad519bdc442b341.mokky.dev/orders', {
+                items: drawerCard
+            });
             setOrderId(data.id);
             setDrawerComlete(true);
             setDrawerCard([]);
+            for (let i = 0; i < drawerCard.length; i++) {
+                const item = drawerCard[i];
+                await axios.delete(`https://3ad519bdc442b341.mokky.dev/DrawerCard/${item.id}`);
+                await delay();
+            }
         }
         catch(err) {
             alert('Не удалось создать заказ');
