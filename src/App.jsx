@@ -77,8 +77,7 @@ export default function App() {
   const onClickFavorite = async (obj) => {
     try {
       if(favorites.find((prev) => prev.parentId === obj.id)) {
-        setFavorites((prev) => prev.filter((prev) => prev.id !== obj.id));
-        axios.delete(`https://3ad519bdc442b341.mokky.dev/favorites/${obj.id}`);
+        setFavorites((prev) => prev.filter(prev => prev.id !== obj.id));
       } else {
         const { data } = await axios.post('https://3ad519bdc442b341.mokky.dev/favorites', obj);
         setFavorites((prev) => [...prev, data]);
@@ -89,7 +88,7 @@ export default function App() {
   }
 
   const getFavoriteItems = (id) => {
-    return favorites.some((item) => item.id === id);
+    return favorites.some((item) => item.parentId === id);
   }
 
   const DeleteFavorite = (id) => {

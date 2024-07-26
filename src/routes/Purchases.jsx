@@ -16,7 +16,7 @@ export default function Purchases() {
         setOrders(data.map((obj) => obj.items).flat());
        }
        catch(err) {
-        // alert('Ошибка при получении заказа');
+        alert('Ошибка при получении заказа');
         console.error(err);
        }
      }
