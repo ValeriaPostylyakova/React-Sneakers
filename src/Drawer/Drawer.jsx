@@ -6,9 +6,9 @@ import { AppContext } from '../App';
 import DrawerInfo from './DrawerInfo';
 import DrawerSneakers from './DrawerSneakers';
 
-const delay = () => new Promise((res) => setTimeout(res, 1000))
 
 export default function Drawer ( {drawerOpen, setDrawerOpen, items = [], DeleteCard} ) {
+    const delay = () => new Promise((res) => setTimeout(res, 1000));
     const { drawerCard, setDrawerCard } = useContext(AppContext);
     const [drawerComlete, setDrawerComlete] = useState(false);
     const [orderId, setOrderId] = useState('');
@@ -37,7 +37,7 @@ export default function Drawer ( {drawerOpen, setDrawerOpen, items = [], DeleteC
         <div>
           <div onClick={() => setDrawerOpen(false)} className={drawerOpen ? 'drawer__blur' : ''}></div>
           <div className={drawerOpen ? 'drawer-wrapper open' : 'drawer-wrapper'}>
-            <div className="my-7 mx-5 flex flex-col items-center">
+            <div className="mt-8 pb-3 h-full mx-5 flex flex-col items-center">
                 <div className='mb-7 flex items-center w-full justify-between cursor-pointer'>
                     <h1 className='text-2xl font-bold'>Корзина</h1>
                     <img onClick={() => setDrawerOpen(false)} width={20} src="./src/assets/DrawerClose.svg" />

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
 import { AppContext } from "./App";
 
-function FavoriteCard({id, imageUrl, title, price}) {
+function FavoriteCard({id, imageUrl, title, price }) {
     const { DeleteFavorite } = useContext(AppContext);
     const [favorite, setFavorite] = useState(true);
 
@@ -31,11 +31,6 @@ function FavoriteCard({id, imageUrl, title, price}) {
                         <p className='card__text-price'>Цена:</p>
                         <p className='card__text'>{price}руб.</p>
                     </div>
-                        <button 
-                        title='Добавить в корзину' 
-                        className='card__button-add'>
-                            <img src={'./src/assets/isAdded1.svg'}/>
-                        </button>
                 </div>
             </div>
          </div>

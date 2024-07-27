@@ -5,7 +5,6 @@ import { AppContext } from '../App';
 
 export default function Card ( 
     {id,
-    parentId, 
     title, 
     price, 
     imageUrl,
@@ -48,7 +47,7 @@ export default function Card (
                 <div className='w-full flex justify-between items-center mt-5'>
                     <div className='text-start'>
                         <p className='card__text-price'>Цена:</p>
-                        <p className='card__text'>{price}руб.</p>
+                        <p className='card__text'>{price} руб.</p>
                     </div>
                     {onClickPlus && (
                         <button 

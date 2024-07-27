@@ -1,13 +1,14 @@
 import { useDrawerPrice } from '../hooks/useDrawerPrice';
 import DrawerCard from './DrawerCard';
+import './DrawerSneakers.scss';
 
 export default function DrawerSneakers ( {items, DeleteCard, onClickOrder} ) {
     
     const { totalPrice, summTax, totalSumm } = useDrawerPrice();
 
     return (
-        <>
-            <div className='flex flex-col gap-3'>
+        <div className='drawer-container'>
+            <div className='flex flex-col gap-3 h-3/5 overflow-auto'>
                 {items.map((obj, index) => (
                 <DrawerCard
                     key={index}
@@ -15,8 +16,8 @@ export default function DrawerSneakers ( {items, DeleteCard, onClickOrder} ) {
                     DeleteCard={DeleteCard} />
                 ))}
             </div>
-        <div className='absolute bottom-4 mt-7 flex flex-col gap-3'>
-            <div className='flex items-end justify-between'>
+        <div className='flex flex-col gap-3 self-end'>
+        <div className='flex items-end justify-between mt-2'>
                 <p>Цена: </p>
                 <span className='span-border'></span>
                 <p className='font-medium'>{totalPrice} руб.</p>
@@ -33,8 +34,7 @@ export default function DrawerSneakers ( {items, DeleteCard, onClickOrder} ) {
             </div>
             <button 
             onClick={onClickOrder}  
-            className='w-full h-14 rounded-2xl bg-lime-500 opacity-80 transition hover:opacity-100'>
-                
+            className='w-full h-12 rounded-2xl bg-lime-500 opacity-80 transition hover:bg-gray-400'>
                 <div className='flex items-center justify-center'>
                     <p className='text-white font-medium mr-10'>Оформить заказ</p>
                     <span>
@@ -43,6 +43,6 @@ export default function DrawerSneakers ( {items, DeleteCard, onClickOrder} ) {
                 </div>
             </button>
         </div>
-        </>
+        </div>
         )
     }

@@ -1,7 +1,18 @@
 import ImageSlider from '../Slider/ImageSlider';
 import CardList from '../CardList/CardList';
+import './Home.scss';
 
-export default function Home( {items, drawerCard, searchValue, onChangeSearchValue, sneakers, isLoading, onClickPlus, onClickFavorite} ) {
+export default function Home( 
+  {items, 
+    drawerCard, 
+    searchValue, 
+    onChangeSearchValue, 
+    sneakers, 
+    isLoading, 
+    onClickPlus, 
+    onClickFavorite, 
+    page, 
+    setPage} ) {
     return (
         <>
         <ImageSlider items={items}/>
@@ -29,6 +40,18 @@ export default function Home( {items, drawerCard, searchValue, onChangeSearchVal
         drawerCard={drawerCard}
         />
       </section>
+      <ul className='pagination'>
+        {
+          [...Array(3)].map((_, index) => (
+            <li
+            key={index} 
+            onClick={() => setPage(index + 1)} 
+            className={page === (index + 1) ? 'active' : ''}>
+            {index + 1}
+            </li>
+          ))
+        }
+      </ul>
       </>
     )
 }

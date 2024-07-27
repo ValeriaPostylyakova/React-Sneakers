@@ -17,17 +17,17 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [drawerCard, setDrawerCard] = useState([]);
   const [favorites, setFavorites] = useState([]);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     async function fetchData () {
       try {
-        const sneakerData = await axios.get('https://3ad519bdc442b341.mokky.dev/sneaker');
+        const { data } = await axios.get(`https://3ad519bdc442b341.mokky.dev/sneaker?page=${page}&limit=8`);
         const DrawerData = await axios.get('https://3ad519bdc442b341.mokky.dev/DrawerCard')
         const FavoritesData = await axios.get('https://3ad519bdc442b341.mokky.dev/favorites')
-     
         setDrawerCard(DrawerData.data);
         setFavorites(FavoritesData.data);
-        setSneakers(sneakerData.data);
+        setSneakers(data.items);
       }
         catch(err) {
           alert('Ошибка при получении данных');
@@ -37,7 +37,7 @@ export default function App() {
     }
 
     fetchData();
-  }, [])
+  }, [page])
 
   const DrawerOpen = () => {
     setDrawerOpen(!drawerOpen);
@@ -134,6 +134,8 @@ export default function App() {
             onClickPlus={onClickPlus}
             getFavoriteItems={getFavoriteItems}
             onClickFavorite={onClickFavorite}
+            page={page}
+            setPage={setPage}
             />
           }/>
           

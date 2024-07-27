@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Card from "../Card/Card";
 import FavoriteCard from "../FavoriteCard";
 
-export default function Favorite({DeleteFavorite}) {
+export default function Favorite() {
     const { favorites, onClickPlus, onClickFavorite } = useContext(AppContext);
     return (
         <>
@@ -21,7 +21,10 @@ export default function Favorite({DeleteFavorite}) {
                 <div className='grid grid-cols-4 gap-10'>
                         {
                             favorites.map((item, index) => (
-                                <FavoriteCard key={index} {...item}/>
+                                <FavoriteCard 
+                                key={index}
+                                {...item}
+                                onClickPlus={onClickPlus}/>
                             ))
                         }
                     </div>
@@ -33,14 +36,14 @@ export default function Favorite({DeleteFavorite}) {
                 <h1 className="text-2xl font-bold">Закладок нет :(</h1>
                 <p className="mb-14 text-slate-500">Вы ничего не добавляли в закладки</p>
                 <button className='w-full h-14 rounded-2xl bg-lime-500 opacity-80 transition hover:opacity-100'>
-                <a href="/">
+                <Link to="/React-Sneakers/">
                     <div className='flex items-center justify-center gap-5'>
                         <span className='rotate-180'>
                             <img src="./src/assets/btn-arrow.svg" alt="arrow" />
                         </span>
                         <p className='text-white font-medium mr-10'>Вернуться назад</p>
                     </div>
-                </a>
+                </Link>
             </button>
             </div>
         </div>

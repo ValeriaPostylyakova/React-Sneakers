@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import Card from "../Card/Card";
 
-const delay = (ms) => new Promise((res) => setTimeout(res, ms));
+const delay = () => new Promise((res) => setTimeout(res, 1000))
 
 export default function Purchases() {
     const [orders, setOrders] = useState([]);
@@ -23,14 +23,6 @@ export default function Purchases() {
      fetchData();
     }, [])
     
-    const clickOrderHistory = async () => {
-        setOrders([]);
-        for (let i = 0; i < orders.length; i++) {
-            const item = orders[i];
-            await axios.delete(`https://3ad519bdc442b341.mokky.dev/orders/${item.id}`);
-            await delay(1000);
-        }
-    }
     return (
         <>
         {orders.length > 0 ? (
@@ -40,7 +32,6 @@ export default function Purchases() {
                         <Link to="/React-Sneakers/"><img src="./src/assets/favorite-arrow.svg" alt="arrow" /></Link>
                     </button>
                     <h1 className="text-2xl font-bold">Мои покупки</h1>
-                    <button onClick={clickOrderHistory} className="ml-auto border py-3 px-8 rounded-xl">Очистить историю</button>
                 </div>
                 <div className='grid grid-cols-4 gap-10'>
                     {
@@ -60,14 +51,14 @@ export default function Purchases() {
                 <h1 className="text-2xl font-bold">У вас нет заказов</h1>
                 <p className="mb-14 text-slate-500">Оформите хотя бы один заказ.</p>
                 <button className='w-full h-14 rounded-2xl bg-lime-500 opacity-80 transition hover:opacity-100'>
-                <a href="/">
+                <Link to="/React-Sneakers/">
                     <div className='flex items-center justify-center gap-5'>
                         <span className='rotate-180'>
                             <img src="./src/assets/btn-arrow.svg" alt="arrow" />
                         </span>
                         <p className='text-white font-medium mr-10'>Вернуться назад</p>
                     </div>
-                </a>
+                </Link>
             </button>
             </div>
         </div>
