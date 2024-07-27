@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  background-color: #ddfacb;
+  width: 100%;
+}/*# sourceMappingURL=index.css.map */

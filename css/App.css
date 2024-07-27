@@ -1,0 +1,86 @@
+.wrapper {
+  width: 80%;
+  background-color: #fff;
+  height: 100%;
+  border-radius: 20px;
+  margin: 0 auto;
+  margin-top: 60px;
+  margin-bottom: 35px;
+}
+
+.search {
+  outline: none;
+  width: 208px;
+  height: 40px;
+  border: 1px solid #d2d2d2;
+  border-radius: 10px;
+  padding-left: 35px;
+  padding-right: 10px;
+  transition: 0.2s;
+}
+.search:focus {
+  border-color: #acacac;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 60px;
+}
+
+.title-hero {
+  font-weight: 700;
+  font-size: 30px;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e9e9e9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #afafaf;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 1000px) {
+  .wrapper {
+    margin-top: 0;
+    width: 95%;
+  }
+}
+@media screen and (max-width: 763px) {
+  .title-hero {
+    font-size: 26px;
+  }
+}
+@media screen and (max-width: 740px) {
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0;
+    margin-top: 0;
+    border-radius: 0;
+  }
+}
+@media screen and (max-width: 686px) {
+  .title-hero {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 484px) {
+  .search {
+    margin-bottom: -30px;
+    height: 35px;
+    width: 180px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .title-hero {
+    visibility: hidden;
+  }
+}/*# sourceMappingURL=App.css.map */
