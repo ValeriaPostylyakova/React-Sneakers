@@ -1,0 +1,44 @@
+.reg {
+    margin-top: 30px;
+    width: 400px;
+    height: 570px;
+}
+
+.form__title {
+    // mt-8 font-bold text-3xl
+    margin-top: 20px;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+input {
+    outline: none;
+}
+
+.form__text {
+    width: 288px;
+    color: #d11313;
+    font-size: 13px;
+}
+
+@media screen and (max-width: 850px) {
+    .form__title {
+        font-size: 27px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .form__title {
+        font-size: 25px;
+    }
+}
+
+
+@media screen and (max-width: 420px) {
+    .form__title {
+        font-size: 23px;
+    }
+    label {
+        font-size: 14px;
+    }
+}

@@ -1,7 +1,9 @@
 import { createContext, useEffect, useState } from 'react';
 import axios from 'axios';
-import './App.scss';
 import { Routes, Route } from 'react-router-dom';
+
+import './App.scss';
+import Registration from './routes/Registration';
 import Header from './Header/Header';
 import Home from './routes/Home';
 import Purchases from './routes/Purchases';
@@ -119,10 +121,10 @@ export default function App() {
       <div className='wrapper'>
       <>
        <Routes>
-        
-        <Route path='/React-Sneakers/' element={<Header/>}>
+        <Route path='/React-Sneakers/' element={<Registration/>}/>
+        <Route path='/React-Sneakers/home' element={<Header/>}>
           
-          <Route index
+          <Route path='/React-Sneakers/home'
             element={
             <Home 
             items={items}

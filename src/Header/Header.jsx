@@ -21,7 +21,7 @@ export default function Header() {
         <>
         <header className="border-b">
             <div className="w-11/12 m-auto flex justify-between items-center py-11">
-                <Link to='/React-Sneakers/'>
+                <Link to='/React-Sneakers/home'>
                     <div className="flex items-center gap-3">
                         <img src="./src/assets/logo.svg" alt="logo" />
                         <div className='title'>
