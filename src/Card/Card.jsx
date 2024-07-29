@@ -18,7 +18,7 @@ export default function Card (
 }
  ) {
     
-    const imgUrl = new URL(imageUrl, import.meta.url).href;
+    const imgUrl = new URL(`/src/assets/${imageUrl}.jpg`, import.meta.url).href;
 
     const { getAddedItems, getFavoriteItems } = useContext(AppContext);
     const obj = { id, parentId: id, title, price, imageUrl };
