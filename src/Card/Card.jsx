@@ -8,7 +8,6 @@ import Favorite from '/src/assets/favorite1.svg?url';
 import Added2 from '/src/assets/isAdded2.svg?url';
 import Added from '/src/assets/isAdded1.svg?url';
 
-
 export default function Card ( 
     {id,
     title, 
@@ -18,6 +17,8 @@ export default function Card (
     onClickFavorite,
 }
  ) {
+    
+    const imgUrl = new URL(imageUrl, import.meta.url).href;
 
     const { getAddedItems, getFavoriteItems } = useContext(AppContext);
     const obj = { id, parentId: id, title, price, imageUrl };
@@ -36,7 +37,7 @@ export default function Card (
             <div className='card__container'>
                 <div className='card__images'>
                     <div className='card__img1'>
-                        <img src={`${imageUrl}?url`} className='card__img-sneaker' alt="sneaker" />
+                        <img src={imgUrl} className='card__img-sneaker' alt="sneaker" />
                     </div>
                         <button
                         onClick={clickFavorite}
