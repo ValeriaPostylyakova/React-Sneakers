@@ -7,6 +7,7 @@ import FavoriteCard from "../FavoriteCard";
 
 import favoriteIcon from '/src/assets/favorite-icon.png?url';
 import arrow from '/src/assets/btn-arrow.svg?url';
+import favoriteArrow from '/src/assets/favorite-arrow.svg?url';
 
 export default function Favorite() {
     const { favorites, onClickPlus } = useContext(AppContext);
@@ -17,7 +18,7 @@ export default function Favorite() {
                 <div className="favorite">
                     <div className="flex items-center gap-5 w-full my-10">
                         <button>
-                            <Link to="/React-Sneakers/"><img src="./src/assets/favorite-arrow.svg" alt="arrow" /></Link>
+                            <Link to="/React-Sneakers/home"><img src={favoriteArrow} alt="arrow" /></Link>
                         </button>
                         <h1>Мои закладки</h1>
                     </div>

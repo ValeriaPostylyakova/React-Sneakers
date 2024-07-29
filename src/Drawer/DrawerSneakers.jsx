@@ -2,6 +2,8 @@ import { useDrawerPrice } from '../hooks/useDrawerPrice';
 import DrawerCard from './DrawerCard';
 import './DrawerSneakers.scss';
 
+import arrow from '/src/assets/btn-arrow.svg?url';
+
 export default function DrawerSneakers ( {items, DeleteCard, onClickOrder} ) {
     
     const { totalPrice, summTax, totalSumm } = useDrawerPrice();
@@ -38,7 +40,7 @@ export default function DrawerSneakers ( {items, DeleteCard, onClickOrder} ) {
                 <div className='flex items-center justify-center'>
                     <p className='text-white font-medium mr-10'>Оформить заказ</p>
                     <span>
-                        <img src="./src/assets/btn-arrow.svg" alt="arrow" />
+                        <img src={arrow} alt="arrow" />
                     </span>
                 </div>
             </button>

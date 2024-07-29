@@ -2,6 +2,8 @@ import ImageSlider from '../Slider/ImageSlider';
 import CardList from '../CardList/CardList';
 import './Home.scss';
 
+import searchImages from '/src/assets/search.svg?url';
+
 export default function Home( 
   {items, 
     drawerCard, 
@@ -26,7 +28,7 @@ export default function Home(
           className='search' 
           type="text" placeholder='Поиск...' />
           <img 
-          src="./src/assets/search.svg" 
+          src={searchImages} 
           className='absolute top-2 left-2 mt-1'
           alt="search" />
           </div>

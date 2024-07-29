@@ -1,6 +1,8 @@
 import { useContext } from "react"
 import { AppContext } from "../App"
 
+import arrow from '/src/assets/btn-arrow.svg?url';
+
 export default function DrawerInfo( {images, title, decription} ) {
     const { setDrawerOpen } = useContext(AppContext);
 
@@ -14,7 +16,7 @@ export default function DrawerInfo( {images, title, decription} ) {
             <button onClick={() => setDrawerOpen(false)} className='w-full h-14 rounded-2xl bg-lime-500 opacity-80 transition hover:opacity-100'>
                 <div className='flex items-center justify-center gap-5'>
                     <span className='rotate-180'>
-                        <img src="./src/assets/btn-arrow.svg" alt="arrow" />
+                        <img src={arrow} alt="arrow" />
                     </span>
                     <p className='text-white font-medium mr-10'>Вернуться назад</p>
                 </div>

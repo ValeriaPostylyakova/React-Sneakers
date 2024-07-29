@@ -3,10 +3,11 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import './FavoritePage.scss';
-import Card from "../Card/Card";
 
 import arrow from '/src/assets/btn-arrow.svg?url';
 import icon from '/src/assets/purchases.png?url';
+import arrowClose from '/src/assets/favorite-arrow.svg?url';
+import PurchasesCard from "../PurchasesCard/PurchasesCard";
 
 export default function Purchases() {
     const [orders, setOrders] = useState([]);
@@ -31,14 +32,14 @@ export default function Purchases() {
             <div className="favorite">
                 <div className="flex items-center gap-5 w-full my-10">
                     <button>
-                        <Link to="/React-Sneakers/"><img src="./src/assets/favorite-arrow.svg" alt="arrow" /></Link>
+                        <Link to="/React-Sneakers/home"><img src={arrowClose} alt="arrow" /></Link>
                     </button>
                     <h1>Мои покупки</h1>
                 </div>
                 <div className='favorite-card__container'>
                     {
                         orders.map((item, index) => (
-                            <Card 
+                            <PurchasesCard 
                             key={index}
                             {...item}
                             />

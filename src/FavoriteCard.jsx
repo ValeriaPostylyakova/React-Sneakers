@@ -15,14 +15,14 @@ function FavoriteCard({id, imageUrl, title, price }) {
             <div className='card__container'>
                 <div className='card__images'>
                     <div className='card__img1'>
-                        <img src={imageUrl} className='card__img-sneaker' alt="sneaker" />
+                        <img src={`.${imageUrl}`} className='card__img-sneaker' alt="sneaker" />
                     </div>
                      <button onClick={onClickFavorite}
                         className='card__favorite-btn'
                         title='Добавить в закладки'
                         >
-                        <img src={favorite ?  "./src/assets/favorite2.svg" : "./src/assets/favorite1.svg"} 
-                        alt="favorite" />
+                        <img src={favorite ? "../src/assets/favorite2.svg?url" : "../src/assets/favorite1.svg?url"} 
+                        alt="favorite"/> 
                     </button>
                 </div>
                 <p className='card__title'>{title}</p>

@@ -6,6 +6,8 @@ import { AppContext } from '../App';
 import DrawerInfo from './DrawerInfo';
 import DrawerSneakers from './DrawerSneakers';
 
+import drawerClose from '/src/assets/DrawerClose.svg?url';
+
 
 export default function Drawer ( {drawerOpen, setDrawerOpen, items = [], DeleteCard} ) {
     const delay = () => new Promise((res) => setTimeout(res, 1000));
@@ -40,7 +42,7 @@ export default function Drawer ( {drawerOpen, setDrawerOpen, items = [], DeleteC
             <div className="mt-8 pb-3 h-full mx-5 flex flex-col items-center">
                 <div className='mb-7 flex items-center w-full justify-between cursor-pointer'>
                     <h1 className='text-2xl font-bold'>Корзина</h1>
-                    <img onClick={() => setDrawerOpen(false)} width={20} src="./src/assets/DrawerClose.svg" />
+                    <img onClick={() => setDrawerOpen(false)} width={20} src={drawerClose} />
                 </div>
                 {
                     items.length > 0 ? (
@@ -53,7 +55,7 @@ export default function Drawer ( {drawerOpen, setDrawerOpen, items = [], DeleteC
                         <DrawerInfo 
                         title={drawerComlete ? "Заказ оформлен!" : "Корзина пустая"}
                         decription={drawerComlete ? `Ваш заказ #${orderId} скоро будет передан курьерской доставке` : "Добавьте хотя бы пару кроссовок, чтобы сделать заказ"}
-                        images={drawerComlete ? "./src/assets/decoratedDrawer.png" : "./src/assets/emptyDrawer.png"}/>
+                        images={drawerComlete ? "./src/assets/decoratedDrawer.png?url" : "./src/assets/emptyDrawer.png?url"}/>
                     )
                 }
                 </div>

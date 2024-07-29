@@ -7,7 +7,7 @@ import { useDrawerPrice } from '../hooks/useDrawerPrice';
 
 import headerLogo from "/src/assets/logo.svg?url"
 import drawer from "/src/assets/Drawer.svg?url"
-import favorite from "/src/assets/favorite.svg?url";
+import favorite from "/src/assets/favorite.svg?url"
 import user from "/src/assets/user.svg?url"
 
 export default function Header() {
@@ -16,11 +16,6 @@ export default function Header() {
     const { DrawerOpen } = useContext(AppContext);
     const { totalPrice } = useDrawerPrice();
     
-    const items = [
-        {id: 0, value: '0 руб.', href: '/', icon: './src/assets/drawer.svg'},
-        {id: 1, value: 'Закладки', href: '/', icon: './src/assets/favorite.svg'},
-        {id: 2, value: 'Профиль', href: '/', icon: './src/assets/user.svg'}
-    ]
 
     return (
         <>
@@ -64,7 +59,7 @@ export default function Header() {
                     <span></span>
                     <span></span>
                 </div>
-                <Menu active={menuActive} setActive={setMenuActive} items={items}/>
+                <Menu active={menuActive} setActive={setMenuActive} DrawerOpen={DrawerOpen}/>
             </div>
         </header>
         <Outlet/>

@@ -10,6 +10,8 @@ import Purchases from './routes/Purchases';
 import Favorite from './routes/Favorite';
 import Drawer from './Drawer/Drawer';
 
+import imagesSlider from '/src/assets/slider-img.png?url';
+
 export const AppContext = createContext({});
 
 export default function App() {
@@ -102,11 +104,11 @@ export default function App() {
   }
 
   const items = [
-    {id: 1, img: './src/assets/slider-img.png'},
-    {id: 2, img: './src/assets/slider-img.png'},
-    {id: 3, img: './src/assets/slider-img.png'},
-    {id: 4, img: './src/assets/slider-img.png'},
-    {id: 5, img: './src/assets/slider-img.png'}
+    {id: 1, img: imagesSlider},
+    {id: 2, img: imagesSlider},
+    {id: 3, img: imagesSlider},
+    {id: 4, img: imagesSlider},
+    {id: 5, img: imagesSlider}
   ]
 
   return (

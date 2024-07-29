@@ -33,3 +33,9 @@
     border: 1px dashed #DFDFDF;
     margin-bottom: 5px;
 }
+
+@media screen and (max-width: 350px) {
+    .drawer-wrapper {
+        width: 100%;
+    }
+}
