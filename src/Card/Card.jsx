@@ -29,14 +29,14 @@ export default function Card (
             <div className='card__container'>
                 <div className='card__images'>
                     <div className='card__img1'>
-                        <img src={imageUrl} className='card__img-sneaker' alt="sneaker" />
+                        <img src={`${imageUrl}?url`} className='card__img-sneaker' alt="sneaker" />
                     </div>
                         <button
                         onClick={clickFavorite}
                         className='card__favorite-btn'
                         title='Добавить в закладки'
                         >
-                        <img src={getFavoriteItems(id) ? "./src/assets/favorite2.svg?url" : "./src/assets/favorite1.svg?url"} 
+                        <img src={getFavoriteItems(id) ? "./src/assets/favorite2.svg" : "./src/assets/favorite1.svg"} 
                         alt="favorite" />
                         </button>
                     </div>
