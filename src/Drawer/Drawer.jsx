@@ -7,6 +7,8 @@ import DrawerInfo from './DrawerInfo';
 import DrawerSneakers from './DrawerSneakers';
 
 import drawerClose from '/src/assets/DrawerClose.svg?url';
+import drawerOrdersImg from "/src/assets/decoratedDrawer.png?url";
+import drawerEmptyImg from "/src/assets/emptyDrawer.png?url";
 
 
 export default function Drawer ( {drawerOpen, setDrawerOpen, items = [], DeleteCard} ) {
@@ -55,7 +57,7 @@ export default function Drawer ( {drawerOpen, setDrawerOpen, items = [], DeleteC
                         <DrawerInfo 
                         title={drawerComlete ? "Заказ оформлен!" : "Корзина пустая"}
                         decription={drawerComlete ? `Ваш заказ #${orderId} скоро будет передан курьерской доставке` : "Добавьте хотя бы пару кроссовок, чтобы сделать заказ"}
-                        images={drawerComlete ? "./src/assets/decoratedDrawer.png?url" : "./src/assets/emptyDrawer.png?url"}/>
+                        images={drawerComlete ? drawerOrdersImg : drawerEmptyImg}/>
                     )
                 }
                 </div>

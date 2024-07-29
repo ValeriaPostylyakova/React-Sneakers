@@ -2,6 +2,13 @@ import { useContext } from 'react';
 import './Card.scss';
 import { AppContext } from '../App';
 
+import Favorite2 from '/src/assets/favorite2.svg?url';
+import Favorite from '/src/assets/favorite1.svg?url';
+
+import Added2 from '/src/assets/isAdded2.svg?url';
+import Added from '/src/assets/isAdded1.svg?url';
+
+
 export default function Card ( 
     {id,
     title, 
@@ -36,7 +43,7 @@ export default function Card (
                         className='card__favorite-btn'
                         title='Добавить в закладки'
                         >
-                        <img src={getFavoriteItems(id) ? "./src/assets/favorite2.svg" : "./src/assets/favorite1.svg"} 
+                        <img src={getFavoriteItems(id) ? Favorite2 : Favorite} 
                         alt="favorite" />
                         </button>
                     </div>
@@ -51,7 +58,7 @@ export default function Card (
                         className='card__button-add'
                         onClick={clickAdded}>
                             <img 
-                            src={getAddedItems(id) ? './src/assets/isAdded2.svg?url' : './src/assets/isAdded1.svg?url'}/>
+                            src={getAddedItems(id) ? Added2 : Added}/>
                     </button>
                 </div>
             </div>

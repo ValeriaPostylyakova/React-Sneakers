@@ -1,6 +1,9 @@
 import { useContext, useState } from "react"
 import { AppContext } from "./App";
 
+import Favorite2 from "../src/assets/favorite2.svg?url";
+import Favorite1 from "../src/assets/favorite1.svg?url";
+
 function FavoriteCard({id, imageUrl, title, price }) {
     const { DeleteFavorite } = useContext(AppContext);
     const [favorite, setFavorite] = useState(true);
@@ -21,7 +24,7 @@ function FavoriteCard({id, imageUrl, title, price }) {
                         className='card__favorite-btn'
                         title='Добавить в закладки'
                         >
-                        <img src={favorite ? "../src/assets/favorite2.svg?url" : "../src/assets/favorite1.svg?url"} 
+                        <img src={favorite ? Favorite2 : Favorite1} 
                         alt="favorite"/> 
                     </button>
                 </div>
