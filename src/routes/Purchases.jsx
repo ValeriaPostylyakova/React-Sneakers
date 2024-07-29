@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import './FavoritePage.scss';
 import Card from "../Card/Card";
 
+import arrow from '/src/assets/btn-arrow.svg?url';
+import icon from '/src/assets/purchases.png?url';
+
 export default function Purchases() {
     const [orders, setOrders] = useState([]);
 
@@ -46,14 +49,14 @@ export default function Purchases() {
         ) : (
         <div className="empty-favorite">
             <div className="empty-favorite__container">
-                <img className="empty-favorite__img" width={70} src="./src/assets/purchases.png" alt="icon" />
+                <img className="empty-favorite__img" width={70} src={icon} alt="icon" />
                 <h1>У вас нет заказов</h1>
                 <p>Оформите хотя бы один заказ.</p>
                 <button>
-                <Link to="/React-Sneakers/">
+                <Link to="/React-Sneakers/home">
                     <div>
                         <span>
-                            <img src="./src/assets/btn-arrow.svg" alt="arrow" />
+                            <img src={arrow} alt="arrow" />
                         </span>
                         <p>Вернуться назад</p>
                     </div>

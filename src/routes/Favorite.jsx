@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import './FavoritePage.scss';
 import FavoriteCard from "../FavoriteCard";
 
+import favoriteIcon from '/src/assets/favorite-icon.png?url';
+import arrow from '/src/assets/btn-arrow.svg?url';
+
 export default function Favorite() {
     const { favorites, onClickPlus } = useContext(AppContext);
     return (
@@ -32,14 +35,14 @@ export default function Favorite() {
         ) : (
             <div className="empty-favorite">
              <div className="empty-favorite__container">
-                <img className="empty-favorite__img" width={70} src="./src/assets/favorite-icon.png" alt="icon" />
+                <img className="empty-favorite__img" width={70} src={favoriteIcon} alt="icon" />
                 <h1>Закладок нет :(</h1>
                 <p>Вы ничего не добавляли в закладки</p>
                 <button>
-                <Link to="/React-Sneakers/">
+                <Link to="/React-Sneakers/home">
                     <div>
                         <span>
-                            <img src="./src/assets/btn-arrow.svg" alt="arrow" />
+                            <img src={arrow} alt="arrow" />
                         </span>
                         <p>Вернуться назад</p>
                     </div>

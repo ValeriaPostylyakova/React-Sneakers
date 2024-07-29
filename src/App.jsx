@@ -122,8 +122,8 @@ export default function App() {
       <>
        <Routes>
         <Route path='/React-Sneakers/' element={<Registration/>}/>
+
         <Route path='/React-Sneakers/home' element={<Header/>}>
-          
           <Route path='/React-Sneakers/home'
             element={
             <Home 
@@ -148,7 +148,6 @@ export default function App() {
             />}/>
             
           <Route path='orders' element={<Purchases/>}/>
-          
           </Route>
         </Routes>
       </>
