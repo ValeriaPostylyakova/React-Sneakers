@@ -123,10 +123,10 @@ export default function App() {
       <div className='wrapper'>
       <>
        <Routes>
-        <Route path='/React-Sneakers/registration' element={<Registration/>}/>
+        <Route path='/' element={<Registration/>}/>
 
-        <Route path='/React-Sneakers/home' element={<Header/>}>
-          <Route path='/React-Sneakers/home'
+        <Route path='home' element={<Header/>}>
+          <Route path='/home'
             element={
             <Home 
             items={items}

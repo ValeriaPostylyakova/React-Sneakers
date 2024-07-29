@@ -5,7 +5,7 @@ import App from './App.jsx'
 import './index.scss'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter basename='/'>
+  <BrowserRouter basename='/React-Sneakers/'>
      <React.StrictMode>
       <App />
      </React.StrictMode>
