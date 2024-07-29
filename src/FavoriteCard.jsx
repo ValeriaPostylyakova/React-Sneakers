@@ -13,12 +13,14 @@ function FavoriteCard({id, imageUrl, title, price }) {
         DeleteFavorite(id);
     }
 
+    const imgUrl = new URL(`/src/assets/${imageUrl}.jpg`, import.meta.url).href;
+
   return (
         <div className='card'>
             <div className='card__container'>
                 <div className='card__images'>
                     <div className='card__img1'>
-                        <img src={`.${imageUrl}`} className='card__img-sneaker' alt="sneaker" />
+                        <img src={imgUrl} className='card__img-sneaker' alt="sneaker" />
                     </div>
                      <button onClick={onClickFavorite}
                         className='card__favorite-btn'
