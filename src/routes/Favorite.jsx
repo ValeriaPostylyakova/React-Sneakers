@@ -18,7 +18,7 @@ export default function Favorite() {
                 <div className="favorite">
                     <div className="flex items-center gap-5 w-full my-10">
                         <button>
-                            <Link to="/React-Sneakers/home"><img src={favoriteArrow} alt="arrow" /></Link>
+                            <Link to="/home"><img src={favoriteArrow} alt="arrow" /></Link>
                         </button>
                         <h1>Мои закладки</h1>
                     </div>
@@ -40,7 +40,7 @@ export default function Favorite() {
                 <h1>Закладок нет :(</h1>
                 <p>Вы ничего не добавляли в закладки</p>
                 <button>
-                <Link to="/React-Sneakers/home">
+                <Link to="/home">
                     <div>
                         <span>
                             <img src={arrow} alt="arrow" />

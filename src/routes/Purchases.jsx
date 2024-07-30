@@ -32,7 +32,7 @@ export default function Purchases() {
             <div className="favorite">
                 <div className="flex items-center gap-5 w-full my-10">
                     <button>
-                        <Link to="/React-Sneakers/home"><img src={arrowClose} alt="arrow" /></Link>
+                        <Link to="/home"><img src={arrowClose} alt="arrow" /></Link>
                     </button>
                     <h1>Мои покупки</h1>
                 </div>
@@ -54,7 +54,7 @@ export default function Purchases() {
                 <h1>У вас нет заказов</h1>
                 <p>Оформите хотя бы один заказ.</p>
                 <button>
-                <Link to="/React-Sneakers/home">
+                <Link to="/home">
                     <div>
                         <span>
                             <img src={arrow} alt="arrow" />

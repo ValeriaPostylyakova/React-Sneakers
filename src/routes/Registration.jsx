@@ -1,9 +1,8 @@
 import { useFormik } from 'formik';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
-import './Registration.scss';
 import { userSchemas } from '../schemas/index';
+
+import './Registration.scss'
 
 const initialValues = {
     email: '',
@@ -26,7 +25,7 @@ export default function Registration() {
     })
 
   return (
-    <>
+    <div className='wrapper-registration'>
         <form onSubmit={handleSubmit} noValidate>
             <ul className='flex flex-col items-center justify-between w-full'>
                 <li>
@@ -105,12 +104,12 @@ export default function Registration() {
                     <label htmlFor='check' className='ml-2 text-sm'>Я даю согласие на обработку персонательных данных</label>
                 </li>
                 <li className='pb-10'>
-                    <Link to='/React-Sneakers/home'>
+                    <Link to='/home'>
                         <button disabled={!(dirty && isValid)} type='submit' className='w-72 h-11 rounded-xl text-slate-500 font-medium bg-gradient-to-r from-lime-100 to-lime-300 transition hover:text-slate-600 disabled:opacity-50'>Зарегистрироваться</button>
                     </Link>
                 </li>
             </ul>
         </form>
-    </>
+    </div>
   )
 }

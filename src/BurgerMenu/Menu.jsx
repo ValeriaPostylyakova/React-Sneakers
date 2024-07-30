@@ -33,7 +33,7 @@ export default function Menu({active, setActive, DrawerOpen}) {
                             </div>
                         </div>
                     </li>
-                    <Link to='/React-Sneakers/home'>
+                    <Link to='/home'>
                         <li className='flex items-center gap-2 cursor-pointer'>
                             <img src={headerLogo} width={20} alt="home" />
                             <span className='font-bold'>Главная</span>
